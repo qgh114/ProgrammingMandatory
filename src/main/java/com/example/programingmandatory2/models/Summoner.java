@@ -27,7 +27,7 @@ public class Summoner {
     @Column
     private String image;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "summoner")
     private Set<Champion> champions;
 
 
