@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>27913a91-d216-4506-91b2-7555b8921eb9.SCHEMA:galleries</OriginalElement>
+  <nodes>
+    <node x="263.0" y="211.0">27913a91-d216-4506-91b2-7555b8921eb9.TABLE:galleries.paintings</node>
+    <node x="263.0" y="0.0">27913a91-d216-4506-91b2-7555b8921eb9.TABLE:galleries.artists</node>
+    <node x="464.0" y="211.0">27913a91-d216-4506-91b2-7555b8921eb9.TABLE:galleries.galleries</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="423.5" y="186.0" />
+  <SelectedNodes>
+    <node>27913a91-d216-4506-91b2-7555b8921eb9.TABLE:galleries.paintings</node>
+    <node>27913a91-d216-4506-91b2-7555b8921eb9.TABLE:galleries.artists</node>
+    <node>27913a91-d216-4506-91b2-7555b8921eb9.TABLE:galleries.galleries</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
