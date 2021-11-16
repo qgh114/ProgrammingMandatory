@@ -1,8 +1,10 @@
 package com.example.programingmandatory2.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -29,6 +31,10 @@ public class Summoner {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "summoner")
     private Set<Champion> champions;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "summoners", fetch = FetchType.LAZY)
+    private List<Match> matches;
 
 
 }
