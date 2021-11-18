@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "mathces")
+@Table(name = "matches")
 public class Match {
 
     @Id

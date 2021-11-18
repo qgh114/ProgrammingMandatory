@@ -1,7 +1,11 @@
 package com.example.programingmandatory2.models;
 
+import com.fasterxml.jackson.annotation.JacksonAnnotation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.extern.jackson.Jacksonized;
 
 import javax.persistence.*;
 import java.util.List;
@@ -28,6 +32,9 @@ public class Summoner {
 
     @Column
     private String image;
+
+   //@JsonIgnore
+    //public Summoner (){}
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "summoner")
