@@ -18,26 +18,23 @@ public class Summoner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private Long id;
 
     @Column
     private String name;
 
-    @Column
-    private String description;
+   // @Column
+    //private String description;
 
     @Column
     private int summonerLevel;
 
-    @Column
-    private String image;
+    //@Column
+    //private String image;
 
-   //@JsonIgnore
-    //public Summoner (){}
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "summoner")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "summoner", cascade = CascadeType.ALL)
     private Set<Champion> champions;
 
     @JsonIgnore

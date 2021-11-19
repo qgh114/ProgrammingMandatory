@@ -1,6 +1,7 @@
 package com.example.programingmandatory2.models;
 
 import lombok.Data;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -18,12 +19,17 @@ public class Champion {
     private String name;
 
     @Column
-    private String title;
+    private String role;
+
+    @Column
+    private String moderate;
 
     @Column
     private String image;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Nullable
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "summoner_id")
     private Summoner summoner;
 
 

@@ -1,5 +1,6 @@
 package com.example.programingmandatory2.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,18 +13,12 @@ public class Match {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column (nullable = false)
     private Long id;
 
     @Enumerated(value = EnumType.STRING)
     @Column
     private GameResult gameResult;
-
-    @Column
-    private String summonerName;
-
-    @Column
-    private String summonerChampion;
 
     @Column
     private int date;
@@ -37,7 +32,8 @@ public class Match {
     @Column
     private int assist;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "matches_summoners",
 
             joinColumns = {
