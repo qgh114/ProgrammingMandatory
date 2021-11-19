@@ -13,8 +13,8 @@ function createChampion(champion) {
         <p>champion name: ${(champion.name)}</p>
         <p>champion role: ${(champion.role)}</p>
         <p>champion moderate: ${(champion.moderate)}</p>
-        <p>${(champion.summoner.name)} is his summoner</p> 
-        <p>Mads summonnerLevel is: ${(champion.summoner.summonerLevel)}</p>
+        <p>${(champion.summoner.name)} is summoner's name</p> 
+        <p>${(champion.summoner.name)} is ${(champion.summoner.summonerLevel)}</p>
         <img src="${(champion.image)}">
         
     `;

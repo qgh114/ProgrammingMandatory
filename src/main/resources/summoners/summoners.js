@@ -2,8 +2,9 @@ const summonerList = document.getElementById("create-summoners-list");
 //let summoners;
 
 
-fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + "jakjdksajd" +
-    "?api_key=RGAPI-54c7d510-98e7-4000-9915-f81e56367244")
+
+fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" +  +
+    "?api_key=" + apiKey)
     .then(response => response.json())
     .then(data => createNewSummoner(data));
 
