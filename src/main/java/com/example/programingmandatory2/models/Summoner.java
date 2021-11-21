@@ -29,8 +29,8 @@ public class Summoner {
     @Column
     private int summonerLevel;
 
-    //@Column
-    //private String image;
+    @Column
+    private String image;
 
 
     @JsonIgnore

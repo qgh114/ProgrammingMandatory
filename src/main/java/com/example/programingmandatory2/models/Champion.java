@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -19,13 +20,20 @@ public class Champion {
     private String name;
 
     @Column
-    private String role;
+    private String title;
 
-    @Column
-    private String moderate;
+
+    @Column(length=2000)
+    private String blurb;
 
     @Column
     private String image;
+
+    @Column
+    private String tags;
+
+   // @Column
+    //private String image;
 
     @Nullable
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

@@ -1,21 +1,28 @@
-const summonerList = document.getElementById("create-summoners-list");
-//let summoners;
+let summoners;
 
 
-
-fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" +  +
-    "?api_key=" + apiKey)
-    .then(response => response.json())
-    .then(data => createNewSummoner(data));
-
-
-/*fetch(" ")
+fetch("http://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/summoner.json")
     .then(response => response.json()
         .then(data => {
-            Object.keys(data.data).map(data=>console.log(data))
-            //summoners.map(summoner => createSummoner(summoner))
-        }));*/
+           summoners = Object.values(data.data)
+           // console.log(summoners.image.full)
+            summoners.map(summoner => createNewSummoner(summoner))
+            //console.log(Object.values(data.data));
+            //console.log(Object.values(data.data)[0].name)
+            //console.log(Object.values(data.data)[0].summonerLevel)
 
+        }));
+
+/*function createSummoner(data) {
+    const summonerElement = document.createElement("div");
+    summonerElement.innerHTML = `
+        <p>${escapeHTML2(data.name)}</p>
+        <p>${escapeHTML2(data.summonerLevel.toString())}</p>
+
+    `;
+
+    summonerList.appendChild(summonerElement);
+}*/
 
 
 /*function createSummoner(summoner) {
@@ -23,7 +30,7 @@ fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" +  +
     summonerElement.innerHTML = `
         <p>${escapeHTML2(summoner.name)}</p>
         <p>${escapeHTML2(summoner.summonerLevel.toString())}</p>
-  
+
     `;
 
     summonerList.appendChild(summonerElement);
@@ -33,7 +40,8 @@ fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" +  +
 function createNewSummoner(summoner) {
     const newSummoner = {
         name: summoner.name,
-        summonerLevel: summoner.summonerLevel
+        summonerLevel: summoner.summonerLevel,
+        image: "https://ddragon.leagueoflegends.com/cdn/11.22.1/img/spell/" + summoner.image.full
     }
 
     fetch(baseURL + "/summoners", {
