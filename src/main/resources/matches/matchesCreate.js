@@ -5,12 +5,12 @@ const createMatchForm = `<div>
     <label>Name</label>
     <input id="create-match-name" placeholder="name">
     <label>GameResult</label>
-    <input id="create-match-gameresult" placeholder="gameresult">    
+    <input id="create-match-gameResult" placeholder="gameresult">    
     <label>date-time</label>
     <input id="create-match-date" placeholder="date-time">    
     <label>kill</label>
     <input id="create-match-kill" placeholder="match kill"> 
-    <label>deatch</label>
+    <label>death</label>
     <input id="create-match-death" placeholder="death kill">
      <label>assist</label>
     <input id="create-match-assist" placeholder="match assist">
@@ -32,7 +32,7 @@ function removeMatchForm() {
 function createMatch() {
     const matchToCreate = {
         name: document.getElementById("create-match-name").value,
-        gameResult: document.getElementById("create-match-gameresult").value,
+        gameResult: document.getElementById("create-match-gameResult").value,
         date: document.getElementById("create-match-date").value,
         kill: document.getElementById("create-match-kill").value,
         death: document.getElementById("create-match-death").value,

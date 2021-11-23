@@ -15,7 +15,7 @@ fetch("http://ddragon.leagueoflegends.com/cdn/9.18.1/data/en_US/champion.json")
 function createChampionCard(champion) {
     const championElement = document.createElement("div");
     championElement.innerHTML = `
-        <p>${escapeHTML2(champion.name)}</p>
+        <p>${escapeHTML2(champion.name)}</p> 
         <p>${escapeHTML2(champion.title)}</p>
         <p>${escapeHTML2(champion.blurb)}</p>
         <p>${escapeHTML2(champion.tags[0])}</p>

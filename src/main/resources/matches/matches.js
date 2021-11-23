@@ -18,7 +18,7 @@ function createMatchTableRow(match) {
 function constructMatchTableRow(matchTableRow, match) {
     matchTableRow.innerHTML = `
             <td>
-                <a href="./matches.html?matchId=${match.id}">
+                <a href="../matches.html?matchId=${match.id}">
                     <p class="row-match-name">${escapeHTML2(match.name)}</p>
                 </a>
             </td>
