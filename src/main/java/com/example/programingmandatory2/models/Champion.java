@@ -32,14 +32,9 @@ public class Champion {
     @Column
     private String tags;
 
-   // @Column
-    //private String image;
 
-    @Nullable
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "summoner_id")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Summoner summoner;
-
 
 
 }

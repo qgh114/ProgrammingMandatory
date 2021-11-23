@@ -1,24 +1,26 @@
 package com.example.programingmandatory2.models;
 
+import com.example.programingmandatory2.controllers.Summoners;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
+
 
 @Data
+@Table(name="matches")
 @Entity
-@Table(name = "matches")
 public class Match {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (nullable = false)
     private Long id;
 
     @Enumerated(value = EnumType.STRING)
     @Column
     private GameResult gameResult;
+
 
     @Column
     private int date;
@@ -32,21 +34,10 @@ public class Match {
     @Column
     private int assist;
 
+
     @JsonIgnore
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinTable(name = "matches_summoners",
-
-            joinColumns = {
-                    @JoinColumn(name = "matches_id", referencedColumnName = "id",
-                            nullable = true, updatable = true)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "summoners_id", referencedColumnName = "id",
-                            nullable = true, updatable = true)
-            }
-
-    )
-    private List<Summoner> summoners;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "match", cascade = CascadeType.ALL)
+    private Set<Summoner> summoners;
 
 
 

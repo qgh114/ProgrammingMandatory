@@ -1,52 +1,56 @@
-
-/*const summonerGalleryDiv = document.getElementById("create-summoners-list");
-let summoners;
-let filteredSummoners;
+const championGalleryDiv = document.getElementById("create-champions-list");
+let championss;
+let filteredChampions;
 
 fetch("http://ddragon.leagueoflegends.com/cdn/9.18.1/data/en_US/champion.json")
     .then(response => response.json()
         .then(data => {
-            summoners = Object.values(data.data)
-            summoners.map(summoner => createSummonerCard(summoner))
+            championss = Object.values(data.data)
+            filteredChampions = championss;
+            championss.map(champion => createChampionCard(champion))
 
         }));
 
 
-function createSummonerCard(summoner) {
-    const summonerElement = document.createElement("div");
-    summonerElement.innerHTML = `
-        <p>${escapeHTML2(summoner.name)}</p>
-        <p>${escapeHTML2(summoner.summonerLevel.toString())}</p>
-        <img src="${escapeHTML2("https://ddragon.leagueoflegends.com/cdn/11.22.1/img/spell/"
-        + summoner.image.full)}" width="110">
+function createChampionCard(champion) {
+    const championElement = document.createElement("div");
+    championElement.innerHTML = `
+        <p>${escapeHTML2(champion.name)}</p>
+        <p>${escapeHTML2(champion.title)}</p>
+        <p>${escapeHTML2(champion.blurb)}</p>
+        <p>${escapeHTML2(champion.tags[0])}</p>
+        <img src="${escapeHTML2("https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/"
+        + champion.image.full)}" width="110">
+           
   
     `;
-
-    summonerGalleryDiv.appendChild(summonerElement);
+    championGalleryDiv.appendChild(championElement);
 }
 
 
-function searchSummoners() {
+function searchChampions() {
     const selectedStatus = document.getElementById("status-dropdown").value;
-    summonerGalleryDiv.innerHTML = "";
+    championGalleryDiv.innerHTML = "";
 
     if (selectedStatus === "All") {
-        filteredSummoners = summoners;
-        summoners.map(createSummonerCard);
+        filteredChampions = championss;
+        championss.map(createChampionCard);
     } else {
-        filteredSummoners = summoners.filter(summoner => summoner.status === selectedStatus);
-        filteredSummoners.map(createSummonerCard);
+        filteredChampions = championss.filter(champion => champion.tags[0] === selectedStatus);
+        filteredChampions.map(createChampionCard);
     }
 }
 
-/!*function handleSearchName(event) {
-    characterGalleryDiv.innerHTML = "";
+function handleSearchName(event) {
+    championGalleryDiv.innerHTML = "";
     const searchTerm = event.target.value.toLowerCase();
-    filteredCharacters.filter(character => character.name.toLowerCase().includes(searchTerm))
-        .map(createCharacterCard);
-}*!/
+    filteredChampions.filter(champion => champion.name.toLowerCase().includes(searchTerm))
+        .map(createChampionCard);
+}
 
-document.getElementById("search").addEventListener("click", searchCharacters);
-//document.getElementById("name-search").addEventListener("input", handleSearchName);
 
-*/
+
+document.getElementById("search").addEventListener("click", searchChampions);
+document.getElementById("name-search").addEventListener("input", handleSearchName);
+
+

@@ -1,7 +1,7 @@
 let summoners;
 
 
-fetch("http://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/summoner.json")
+fetch("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/summoner.json")
     .then(response => response.json()
         .then(data => {
            summoners = Object.values(data.data)

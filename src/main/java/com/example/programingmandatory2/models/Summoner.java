@@ -34,12 +34,12 @@ public class Summoner {
 
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "summoner", cascade = CascadeType.ALL)
-    private Set<Champion> champions;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    //@JoinColumn(name = "matches_id", referencedColumnName = "id")
+    private Match match;
+
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "summoners", fetch = FetchType.LAZY)
-    private List<Match> matches;
-
-
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Champion champion;
 }

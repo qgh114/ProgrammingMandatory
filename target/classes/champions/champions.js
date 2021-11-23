@@ -1,8 +1,4 @@
-
-const championList = document.getElementById("create-champions-list");
-
-
-  /* fetch(baseURL + "/champions")
+/* fetch(baseURL + "/champions")
    .then(response => response.json())
     .then(data => data.map(createChampion));
 
@@ -27,7 +23,6 @@ function createChampion(champion) {
 
 */
 
-//const summonerList = document.getElementById("create-summoners-list");
 let champions;
 
 
@@ -82,7 +77,7 @@ function createNewChampion(champion) {
         title: champion.title,
         blurb: champion.blurb,
         image: "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/" + champion.image.full,
-        tags: champion.tags
+        tags: champion.tags[0]
 
     }
 
