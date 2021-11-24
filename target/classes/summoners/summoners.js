@@ -13,16 +13,6 @@ fetch("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/summoner.json"
 
         }));
 
-/*function createSummoner(data) {
-    const summonerElement = document.createElement("div");
-    summonerElement.innerHTML = `
-        <p>${escapeHTML2(data.name)}</p>
-        <p>${escapeHTML2(data.summonerLevel.toString())}</p>
-
-    `;
-
-    summonerList.appendChild(summonerElement);
-}*/
 
 
 /*function createSummoner(summoner) {

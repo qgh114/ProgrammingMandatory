@@ -17,10 +17,13 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    @Column
+    private String name;
+
     @Enumerated(value = EnumType.STRING)
     @Column
     private GameResult gameResult;
-
 
     @Column
     private int date;

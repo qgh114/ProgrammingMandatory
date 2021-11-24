@@ -1,25 +1,8 @@
-const matchFormParentDiv = document.getElementById("create-match-form");
-const matchFormExpandButton = document.getElementById("expand-match-form");
-
-const createMatchForm = `<div>
-    <label>Name</label>
-    <input id="create-match-name" placeholder="name">
-    <label>GameResult</label>
-    <input id="create-match-gameResult" placeholder="gameresult">    
-    <label>date-time</label>
-    <input id="create-match-date" placeholder="date-time">    
-    <label>kill</label>
-    <input id="create-match-kill" placeholder="match kill"> 
-    <label>death</label>
-    <input id="create-match-death" placeholder="death kill">
-     <label>assist</label>
-    <input id="create-match-assist" placeholder="match assist">
-    <button onclick="removeMatchForm()">Cancel Match</button>
-    <button onclick="createMatch()">Create A New Match</button>
-</div>`;
+const createMatchForm = document.getElementById("match");
+//const matchFormExpandButton = document.getElementById("expand-match-form");
 
 
-function showMatchForm() {
+/*function showMatchForm() {
     matchFormExpandButton.style.display = "none";
     matchFormParentDiv.innerHTML = createMatchForm;
 }
@@ -27,7 +10,7 @@ function showMatchForm() {
 function removeMatchForm() {
     matchFormExpandButton.style.display = "block";
     matchFormParentDiv.innerHTML = "";
-}
+}*/
 
 function createMatch() {
     const matchToCreate = {
@@ -37,22 +20,22 @@ function createMatch() {
         kill: document.getElementById("create-match-kill").value,
         death: document.getElementById("create-match-death").value,
         assist: document.getElementById("create-match-assist").value
-    };
+    }
 
     fetch(baseURL + "/matches", {
         method: "POST",
         headers: { "Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify(matchToCreate)
     }).then(response => response.json())
-        .then(match => {
-            removeMatchForm();
-            createMatchTableRow(match);
-        }).catch(error => console.log(error));
+        //.then(match => {
+            //removeMatchForm();
+            //createMatchTableRow(match);
+        .catch(error => console.log(error));
 }
 
-
+/*
 document.getElementById("expand-match-form")
-    .addEventListener("click", showMatchForm);
+    .addEventListener("click", showMatchForm);*/
 
 
 
