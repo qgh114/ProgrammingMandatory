@@ -3,40 +3,30 @@ function updateMatch(match) {
 
     tableRowToUpdate.innerHTML = `
         <td>
-            <input id="update-match-name-${match.id}" value="${escapeHTML2(match.name)}">
+            <input id="update-match-name-${match.id}" value="${(match.name)}">
         </td>
         <td>
-            <input id="update-match-gameResult-${match.id}" value="${escapeHTML2(match.gameResult)}">
+            <input id="update-match-gameResult-${match.id}" value="${(match.gameResult)}">
         </td>
        <td>
-            <input id="update-match-date-${match.id}" value="${escapeHTML2(match.date)}">
+            <input id="update-match-date-${match.id}" value="${(match.date)}">
        </td>
        <td>
-            <input id="update-match-kill-${match.id}" type="number" value="${escapeHTML2(match.kill.toString())}">
+            <input id="update-match-kill-${match.id}" type="number" value="${(match.kill.toString())}">
        </td>
         <td>
-            <input id="update-match-death-${match.id}" type="number" value="${escapeHTML2(match.death.toString())}">
+            <input id="update-match-death-${match.id}" type="number" value="${(match.death.toString())}">
        </td>
         <td>
-            <input id="update-match-assist-${match.id}" type="number" value="${escapeHTML2(match.assist.toString())}">
+            <input id="update-match-assist-${match.id}" type="number" value="${(match.assist.toString())}">
        </td>
        <td>
-            <button id="cancel-update-${match.id}">✖️</button>
+           
             <button onclick="updateMatchInBackend(${match.id})">✅</button>
        </td>
-       <td>
-            <button onclick="deleteMatch(${match.id})">❌</button>
-       </td>
+     
     `;
 
-    document.getElementById(`cancel-update-${match.id}`)
-        .addEventListener("click", () => undoUpdateTableRow(match));
-}
-
-function undoUpdateTableRow(match) {
-    const matchTableRow = document.getElementById(match.id);
-
-    constructMatchTableRow(matchTableRow, match);
 }
 
 function updateMatchInBackend(matchId) {
@@ -53,7 +43,7 @@ function updateMatchInBackend(matchId) {
         assist: document.getElementById(`update-match-assist-${matchId}`).value
     };
 
-    fetch(baseURL + "/matches/" + matchId, {
+    fetch("http://localhost:8080/matches/" + matchId, {
         method: "PATCH",
         headers: { "Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify(matchToUpdate)

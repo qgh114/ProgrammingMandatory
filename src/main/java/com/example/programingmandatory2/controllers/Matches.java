@@ -27,8 +27,9 @@ public class Matches {
 
     @PostMapping("/matches")
     public Match addMatch(@RequestBody Match newMatch) {
-        newMatch.setId(2L);
+
         return matches.save(newMatch);
+        //return "redirect:/matches";
     }
 
 
@@ -45,7 +46,7 @@ public class Matches {
     }
 
     @PatchMapping("/matches/{id}")
-    public String patchArtistById(@PathVariable Long id, @RequestBody Match matchesToUpdateWith){
+    public String patchMatchById(@PathVariable Long id, @RequestBody Match matchesToUpdateWith){
         return matches.findById(id).map( foundMatch -> {
             // hvis artist som klienten skrive ikke er tom så indsæt
             if(matchesToUpdateWith.getGameResult() !=null) foundMatch.setGameResult(matchesToUpdateWith.getGameResult());

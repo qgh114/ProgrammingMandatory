@@ -38,8 +38,10 @@ public class Match {
     private int assist;
 
 
+
+
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "match", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Summoner> summoners;
 
 

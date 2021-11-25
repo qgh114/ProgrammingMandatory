@@ -1,10 +1,11 @@
+/*
 function escapeHTML2(string) {
     if (!string) return "";
+    console.log("test")
+    return string.replace(`&`, "&amp;")
+        .replace(`>`, "&gt;")
+        .replace(`<`, "&lt;")
+        .replace(`"`, "&quot;")
+        .replace(`/`, "&#039;");
 
-    return string.replace(/&/g, "&amp;")
-        .replace(">", "&gt;")
-        .replace("<", "&lt;")
-        .replace(/"/g, "&quot;")
-        .replace("'", "&#039;");
-
-}
+}*/

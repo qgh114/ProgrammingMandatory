@@ -1,18 +1,19 @@
 const createMatchForm = document.getElementById("match");
-//const matchFormExpandButton = document.getElementById("expand-match-form");
 
 
-/*function showMatchForm() {
-    matchFormExpandButton.style.display = "none";
-    matchFormParentDiv.innerHTML = createMatchForm;
-}
+fetch(baseURL + "/summoners").then(response =>  response.json())
+    .then(data => {
+        const selectedSumm = document.getElementById("create-match-name");
+        for(let i = 1; data.length; i++){
 
-function removeMatchForm() {
-    matchFormExpandButton.style.display = "block";
-    matchFormParentDiv.innerHTML = "";
-}*/
+            const optional = document.createElement("option");
+            optional.innerHTML = data[i]["name"];
+            selectedSumm.appendChild(optional);
+        }
+    });
 
 function createMatch() {
+
     const matchToCreate = {
         name: document.getElementById("create-match-name").value,
         gameResult: document.getElementById("create-match-gameResult").value,
@@ -22,20 +23,14 @@ function createMatch() {
         assist: document.getElementById("create-match-assist").value
     }
 
-    fetch(baseURL + "/matches", {
+    fetch( baseURL + "/matches",{
         method: "POST",
         headers: { "Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify(matchToCreate)
     }).then(response => response.json())
-        //.then(match => {
-            //removeMatchForm();
-            //createMatchTableRow(match);
         .catch(error => console.log(error));
 }
 
-/*
-document.getElementById("expand-match-form")
-    .addEventListener("click", showMatchForm);*/
 
 
 

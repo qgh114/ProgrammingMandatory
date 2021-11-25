@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <script src="../global.js"></script>
@@ -19,9 +19,9 @@
 
 <h2>Create match</h2>
 <div id="match">
-    <label>Name</label>
+    <label>SummonerName</label>
     <br>
-    <input id="create-match-name" placeholder="name">
+    <select id="create-match-name"></select>
     <br><br>
     <label>GameResult</label>
     <br>
@@ -43,9 +43,14 @@
     <br>
     <input id="create-match-assist" placeholder="match assist">
     <br> <br>
-    <button onclick="createMatch()">+</button>
+    <button onclick="createMatch();myhref()">+</button>
+    <script>
+        function myhref(){
+            location.assign('matches.html/');
+        }
+    </script>
     <br>
-    <button onclick="removeMatchForm()">Cancel Match</button>
+    <!-- <button onclick="removeMatchForm()">Cancel Match</button>-->
 
 
 
