@@ -45,13 +45,27 @@ function updateMatchInBackend(matchId) {
 
     fetch("http://localhost:8080/matches/" + matchId, {
         method: "PATCH",
-        headers: { "Content-type": "application/json; charset=UTF-8" },
+        headers: {"Content-type": "application/json; charset=UTF-8"},
         body: JSON.stringify(matchToUpdate)
     }).then(response => {
         if (response.status === 200) {
             constructMatchTableRow(tableRowToUpdate, matchToUpdate);
         }
     });
-
 }
+
+function deleteMatch(matchId) {
+    fetch(baseURL + "/matches/" + matchId, {
+        method: "DELETE"
+    }).then(response => {
+        if (response.status === 200) {
+            document.getElementById(matchId).remove();
+        } else {
+            console.log(response.status);
+        }
+    });
+}
+
+
+
 

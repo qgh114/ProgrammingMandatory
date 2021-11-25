@@ -45,13 +45,24 @@ function constructMatchTableRow(matchTableRow, match) {
             <td>
             
                 <button id="update-button-${match.id}">update button</button>            
-            </td>           
+            </td>   
+             <td>
+                <button onclick="deleteMatch(${match.id})">❌</button>            
+            </td>        
             
         `;
-    console.log("update knap")
+
 
     document.getElementById(`update-button-${match.id}`)
         .addEventListener("click", () => {
             updateMatch(match)});
+
+
 }
+
+
+
+
+
+
 
