@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 
@@ -26,7 +27,7 @@ public class Match {
     private GameResult gameResult;
 
     @Column
-    private int date;
+    private String date;
 
     @Column
     private int kill;
@@ -41,7 +42,7 @@ public class Match {
 
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "match", cascade = CascadeType.ALL)
     private Set<Summoner> summoners;
 
 

@@ -29,7 +29,7 @@ public class Matches {
     public Match addMatch(@RequestBody Match newMatch) {
 
         return matches.save(newMatch);
-        //return "redirect:/matches";
+
     }
 
 
@@ -50,7 +50,7 @@ public class Matches {
         return matches.findById(id).map( foundMatch -> {
             // hvis artist som klienten skrive ikke er tom så indsæt
             if(matchesToUpdateWith.getGameResult() !=null) foundMatch.setGameResult(matchesToUpdateWith.getGameResult());
-            if(matchesToUpdateWith.getDate() !=0) foundMatch.setDate(matchesToUpdateWith.getDate());
+            if(matchesToUpdateWith.getDate() !=null) foundMatch.setDate(matchesToUpdateWith.getDate());
             if(matchesToUpdateWith.getKill()!=0) foundMatch.setKill(matchesToUpdateWith.getKill());
             if(matchesToUpdateWith.getDeath() != 0) foundMatch.setDeath(matchesToUpdateWith.getDeath());
             if(matchesToUpdateWith.getAssist() !=0) foundMatch.setAssist(matchesToUpdateWith.getAssist());

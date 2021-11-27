@@ -4,7 +4,6 @@ fetch("http://localhost:8080/matches")
     .then(response => response.json())
     .then(matches => {
         console.log("here i fetch")
-        //createMatchesTableRow(matches)
        matches.map(createMatchesTableRow);
     });
 
@@ -29,7 +28,7 @@ function constructMatchTableRow(matchTableRow, match) {
                 <p class="row-match-gameResult">${(match.gameResult).toString()}</p>
             </td>
             <td>
-                <p class="row-match-dateTime">${(match.date.toString())}</p>
+                <p class="row-match-dateTime">${(match.date)}</p>
             </td>
             <td>
                 <p class="row-match-kill">${(match.kill.toString())}</p>

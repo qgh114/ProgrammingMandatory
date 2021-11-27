@@ -12,9 +12,9 @@ fetch("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/summoner.json"
 function createSummoner(summoner) {
     const summonerElement = document.createElement("div");
     summonerElement.innerHTML = `
-        <p>SummonerName: ${escapeHTML2(summoner.name)}</p>
-        <p>SummonerLevel: ${escapeHTML2(summoner.summonerLevel.toString())}</p>
-        <img src="${escapeHTML2("https://ddragon.leagueoflegends.com/cdn/11.22.1/img/spell/" + 
+        <p>SummonerName: ${(summoner.name)}</p>
+        <p>SummonerLevel: ${(summoner.summonerLevel.toString())}</p>
+        <img src="${("https://ddragon.leagueoflegends.com/cdn/11.22.1/img/spell/" + 
         summoner.image.full)}" width="110">
 
     `;
